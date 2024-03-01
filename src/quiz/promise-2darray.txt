@@ -1,1 +1,20 @@
 Explain the code execution based on the order of the messages logged in src/quiz/promise-2darray.txt.
+
+Sum called ... 
+returning from sum
+
+would be logged first because we call sum2Darray which is on the main thread. As we pass correct array its computational operation is expensive
+so it would be executed on eventLoop. 
+Similarly Sum called ... 
+would be executed after this as it is on the main thread. 
+
+Then 
+rejecting ... 
+returning from sum
+BAD INPUT: Expected array as input
+would be logged as even if it is async operation it gets executed before the addition of matrix is performed. 
+
+resolving ... 
+45
+
+Now, the async operation of addition is completed and the result is logged on to the console.
